@@ -27,11 +27,11 @@ A full-stack Job Board web application built with Java Spring Boot backend and H
 ## Project Structure
 
 src/main/java/com/hirehub/hirehub/
-├── controller/ REST API endpoints
-├── model/ Entity classes
-├── repository/ Database access layer
-├── security/ JWT and security configuration
-└── config/ Application configuration
+```├── controller/ REST API endpoints
+```├── model/ Entity classes
+```├── repository/ Database access layer
+```├── security/ JWT and security configuration
+```└── config/ Application configuration
 
 
 ## How to Run Locally
