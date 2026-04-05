@@ -53,7 +53,8 @@
         <button class="nav-tab" onclick="showPage('postjob', this)">➕ Post a Job</button>
     </div>
 
-    <!-- Right side — switches between auth buttons and user info -->
+    <!-- Right side — switch
+    es between auth buttons and user info -->
     <div class="d-flex align-items-center gap-3">
 
         <!-- Auth buttons (shown before login) -->
@@ -409,7 +410,10 @@
     async function loadJobs() {
         const res = await fetch(`${API}/jobs?page=${currentPage}&size=6`);
         const data = await res.json();
-        const jobs = data.content || [];
+        
+        console.log(data);
+
+        const jobs = data.content || data;
         document.getElementById('pageInfo').textContent = `Page ${currentPage + 1}`;
         renderJobs(jobs);
     }
