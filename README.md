@@ -2,6 +2,10 @@
 
 A full-stack Job Board web application built with Java Spring Boot backend and HTML/CSS/JS frontend.
 
+## 🌐 Live Demo
+
+[https://hirehub-frontend-ux7z.onrender.com](https://hirehub-frontend-ux7z.onrender.com)
+
 ## Features
 
 - JWT-based Authentication (Register/Login)
@@ -24,18 +28,65 @@ A full-stack Job Board web application built with Java Spring Boot backend and H
 | Frontend       | HTML, CSS, JavaScript, Bootstrap 5        |
 | Tools          | Postman, Git, Maven, VS Code              |
 
-## Project Structure
-
+## 📁 Project Structure
 ```
 src/main/java/com/hirehub/hirehub/
-├── controller/ REST API endpoints
-├── model/ Entity classes
-├── repository/ Database access layer
-├── security/ JWT and security configuration
-└── config/ Application configuration
+├── config/
+│   └── CorsConfig.java          → CORS configuration
+├── controller/
+│   ├── AuthController.java      → Register & Login APIs
+│   ├── JobController.java       → Job CRUD APIs
+│   ├── ApplicationController.java → Apply & track APIs
+│   └── AdminController.java     → Admin dashboard APIs
+├── model/
+│   ├── User.java                → User entity (STUDENT/COMPANY/ADMIN)
+│   ├── Job.java                 → Job listing entity
+│   └── Application.java        → Job application entity
+├── repository/
+│   ├── UserRepository.java
+│   ├── JobRepository.java
+│   └── ApplicationRepository.java
+└── security/
+    ├── JwtUtil.java             → JWT token generation & validation
+    ├── JwtFilter.java           → JWT request filter
+    └── SecurityConfig.java      → Spring Security configuration
 ```
 
-## How to Run Locally
+## 🚀 How to Run Locally
+
+### Prerequisites
+- Java 21+
+- MySQL (XAMPP)
+- Maven
+- VS Code or IntelliJ
+
+### Steps
+1. Clone the repo
+git clone https://github.com/shivangiazad/hirehub.git
+cd hirehub
+
+2. Start XAMPP → Start **Apache** and **MySQL**
+
+3. Open `http://localhost/phpmyadmin` → Create database named `hirehub`
+
+4. Open `src/main/resources/application.properties` and update:
+```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/hirehub
+   spring.datasource.username=root
+   spring.datasource.password=
+   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+   spring.jpa.hibernate.ddl-auto=update
+   spring.jpa.show-sql=true
+   spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+   server.port=8080
+```
+
+5. Run the backend
+mvn spring-boot:run
+
+6. Open `index.html` with **Live Server** in VS Code
+
+7. Register an account and start exploring! 🎉
 
 ### Prerequisites
 
